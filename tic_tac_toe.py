@@ -17,11 +17,13 @@ y = dataset.iloc[:, 9:10].values
 labelencoder_X = LabelEncoder()
 for _ in range(9):
     X[:, _] = labelencoder_X.fit_transform(X[:, _])
-
+print(np.size(X))
+#print(labelencoder_X.inverse_transform(X[:, _]))
 # Onehot encode all dependent categorical variables
 onehotencoder = OneHotEncoder(categorical_features = [0,1,2,3,4,5,6,7,8])
 X = onehotencoder.fit_transform(X).toarray()
-
+#print(X)
+np.savetxt("foo.csv", X, delimiter=",")
 # Remove every third column to avoid dummy variable trap
 # Only need 2 bits to represent 3 possibilities
 X = np.delete(X, [0,3,6,9,12,15,18,21,24], axis=1)
