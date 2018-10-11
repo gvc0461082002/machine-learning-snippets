@@ -1,6 +1,6 @@
 # Define the training data
 import numpy as np
-
+import matplotlib.pyplot as plt
 X_train = np.random.random((5000, 32))
 y_train = np.random.random((5000, 5))
 
@@ -26,3 +26,8 @@ model.compile(optimizer='adam',
 model.fit(X_train, y_train,
           batch_size=128,
           epochs=10)
+y_predict = model.predict(X_train[1:20])
+
+plt.plot(y_train[1:20]-y_predict)
+plt.ylabel('prediction')
+plt.show()
