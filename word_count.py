@@ -14,3 +14,9 @@ for w in words:
 
 print(wordsFiltered)
 print(len(wordsFiltered))
+
+from collections import Counter
+list1=['apple','egg','apple','banana','egg','apple']
+counts = Counter(list1)
+print(counts)
+# Counter({'apple': 3, 'egg': 2, 'banana': 1})
